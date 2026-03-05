@@ -1,71 +1,95 @@
-const HERO_BG = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=2000&q=80'
+import { useT } from '@/hooks/useT'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export function Hero() {
+  const t = useT()
+  const { lang } = useLanguage()
+
   return (
-    <section className="relative min-h-screen flex flex-col justify-end pb-16 md:pb-24 px-6 md:px-10 overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <img
-          src={HERO_BG}
-          alt=""
-          className="w-full h-full object-cover object-center"
-          loading="eager"
-        />
-        {/* Dark gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40" />
-        {/* Subtle grid on top */}
-        <div
-          className="absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage:
-              'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
-            backgroundSize: '80px 80px',
-          }}
-        />
-      </div>
+    <section className="relative min-h-screen flex flex-col justify-end pb-16 md:pb-28 px-6 md:px-10 bg-black overflow-hidden pt-24">
+      {/* Subtle grid */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
+          backgroundSize: '100px 100px',
+        }}
+      />
+
+      {/* Red accent glow — top right */}
+      <div className="absolute top-0 right-0 w-[40vw] h-[40vw] max-w-[700px] max-h-[700px] bg-accent/8 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="relative max-w-screen-xl mx-auto w-full">
         {/* Eyebrow */}
-        <p className="text-white/50 text-xs font-semibold uppercase tracking-[0.3em] mb-8">
-          Creative Innovation Agency
+        <p className="text-white/35 text-[11px] font-semibold uppercase tracking-[0.35em] mb-10 md:mb-14">
+          {t('hero_eyebrow')}
         </p>
 
-        {/* Headline */}
-        <h1 className="font-black text-white leading-[0.9] tracking-[-0.04em] text-[clamp(3rem,10vw,9rem)] mb-10 max-w-[18ch]">
-          We build brands for the{' '}
-          <span className="text-accent">intelligence</span>{' '}
-          age.
-        </h1>
+        {/* Headline — R/GA style: one massive statement */}
+        <div className="mb-12 md:mb-16">
+          {lang === 'ko' ? (
+            <>
+              <h1 className="font-black text-white leading-[0.88] tracking-[-0.05em] text-[clamp(3.2rem,9vw,8.5rem)]">
+                We navigate business
+              </h1>
+              <h1 className="font-black text-accent leading-[0.88] tracking-[-0.05em] text-[clamp(3.2rem,9vw,8.5rem)]">
+                최적화(Optimizing)
+              </h1>
+              <h1 className="font-black text-white leading-[0.88] tracking-[-0.05em] text-[clamp(3.2rem,9vw,8.5rem)]">
+                toward the horizon.
+              </h1>
+            </>
+          ) : (
+            <>
+              <h1 className="font-black text-white leading-[0.88] tracking-[-0.05em] text-[clamp(3.2rem,9vw,8.5rem)]">
+                We navigate
+              </h1>
+              <h1 className="font-black text-white leading-[0.88] tracking-[-0.05em] text-[clamp(3.2rem,9vw,8.5rem)]">
+                business toward
+              </h1>
+              <h1 className="font-black text-accent leading-[0.88] tracking-[-0.05em] text-[clamp(3.2rem,9vw,8.5rem)]">
+                the horizon.
+              </h1>
+            </>
+          )}
+        </div>
 
-        {/* Subtext + CTA row */}
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
-          <p className="text-white/55 text-base md:text-lg font-normal max-w-[480px] leading-relaxed">
-            Wegooli Creative Lab is an independent creative agency. We combine strategy, design, and technology to create experiences that move people — and move culture.
+        {/* Bottom row */}
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 border-t border-white/10 pt-8">
+          <p className="text-white/45 text-sm md:text-base leading-relaxed max-w-[520px]">
+            {t('hero_sub')}
           </p>
 
-          <div className="flex items-center gap-6 shrink-0">
+          <div className="flex items-center gap-4 shrink-0">
             <a
               href="#work"
-              className="inline-flex items-center gap-3 bg-white text-black font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-accent hover:text-white transition-all duration-200"
+              className="inline-flex items-center gap-3 bg-white text-black font-bold uppercase tracking-widest text-xs px-7 py-4 hover:bg-accent hover:text-white transition-all duration-200"
             >
-              View Work
-              <span className="text-lg">→</span>
+              {t('cta_work')}
+              <span className="text-base">→</span>
+            </a>
+            <a
+              href="#contact"
+              className="text-white/40 hover:text-white text-xs font-semibold uppercase tracking-widest transition-colors"
+            >
+              {t('cta_project')}
             </a>
           </div>
         </div>
 
-        {/* Stats bar */}
-        <div className="mt-16 pt-8 border-t border-white/10 grid grid-cols-3 gap-4 md:gap-0 md:flex md:items-center md:divide-x md:divide-white/10">
+        {/* Stats */}
+        <div className="mt-14 md:mt-20 grid grid-cols-3 md:flex md:items-center md:gap-0 md:divide-x md:divide-white/10">
           {[
-            { value: '120+', label: 'Projects Delivered' },
-            { value: '40+', label: 'Global Clients' },
-            { value: '12', label: 'Industry Awards' },
+            { value: '120+', label: 'Projects' },
+            { value: '40+', label: 'Clients' },
+            { value: '12', label: 'Awards' },
           ].map((stat) => (
-            <div key={stat.label} className="md:px-10 first:pl-0">
-              <p className="text-3xl md:text-4xl font-black text-white tracking-tight">
+            <div key={stat.label} className="md:pr-10 md:pl-10 first:pl-0">
+              <p className="text-2xl md:text-3xl font-black text-white tracking-tight">
                 {stat.value}
               </p>
-              <p className="text-white/40 text-xs uppercase tracking-widest mt-1">
+              <p className="text-white/30 text-[10px] uppercase tracking-[0.2em] mt-1">
                 {stat.label}
               </p>
             </div>

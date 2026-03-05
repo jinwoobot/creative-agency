@@ -1,22 +1,20 @@
 export function Logo() {
   return (
-    <a href="#" className="flex items-center gap-2.5 group shrink-0">
-      {/* Red W mark */}
+    <a href="#" className="flex items-center gap-2 shrink-0">
       <svg
-        width="36"
-        height="28"
-        viewBox="0 0 48 36"
+        width="32"
+        height="22"
+        viewBox="0 0 64 44"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="shrink-0"
       >
-        <polygon
-          points="0,0 10,0 18,26 24,10 30,10 38,26 46,0 48,0 40,36 28,36 24,24 20,36 8,36"
-          fill="#FF2D20"
+        {/* Refined geometric W — two overlapping V shapes */}
+        <path
+          d="M0 4L12 40H18L28 16L38 40H44L56 4H50L42 28L32 4H24L14 28L6 4H0Z"
+          fill="#FF0000"
         />
       </svg>
-      {/* WCL wordmark */}
-      <span className="font-black text-white text-lg tracking-[0.12em] uppercase">
+      <span className="font-black text-white text-base tracking-[0.06em]">
         WCL
       </span>
     </a>

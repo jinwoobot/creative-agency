@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <rect width="64" height="64" fill="#000000"/>
-  <!-- W shape -->
-  <polygon points="6,14 14,14 20,40 26,22 32,22 38,40 44,14 52,14 42,50 34,50 29,34 24,50 16,50" fill="#ffffff"/>
-  <!-- Red accent dot -->
-  <rect x="44" y="44" width="10" height="10" fill="#FF2D20"/>
+  <path
+    d="M6 12L18 48H24L32 24L40 48H46L58 12H52L44 36L36 12H28L20 36L12 12H6Z"
+    fill="#FF0000"
+  />
 </svg>

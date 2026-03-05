@@ -6,7 +6,6 @@ export interface Project {
   year: string
   description: string
   tags: string[]
-  image: string
 }
 
 export interface Service {
@@ -21,7 +20,6 @@ export interface TeamMember {
   name: string
   role: string
   bio: string
-  image: string
 }
 
 export interface NavItem {

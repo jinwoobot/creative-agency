@@ -16,6 +16,7 @@ export const PROJECTS: Project[] = [
     year: '2025',
     description: 'A complete visual identity overhaul positioning a Fortune 500 company for the intelligence age.',
     tags: ['Strategy', 'Identity', 'Motion'],
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 2,
@@ -25,6 +26,7 @@ export const PROJECTS: Project[] = [
     year: '2025',
     description: 'Designed and built an adaptive product interface that learns from user behavior in real time.',
     tags: ['UX', 'AI', 'Prototyping'],
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ export const PROJECTS: Project[] = [
     year: '2024',
     description: 'An integrated campaign across 12 markets that redefined how an automotive brand speaks to Gen Z.',
     tags: ['Campaign', 'Content', 'Social'],
+    image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 4,
@@ -43,6 +46,7 @@ export const PROJECTS: Project[] = [
     year: '2024',
     description: 'A next-generation e-commerce platform combining editorial storytelling with seamless transactions.',
     tags: ['E-Commerce', 'Design', 'Engineering'],
+    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80',
   },
 ]
 
@@ -76,26 +80,44 @@ export const SERVICES: Service[] = [
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 1,
-    name: 'Ji-won Park',
+    name: 'Jinwoo Choi',
     role: 'Executive Creative Director',
-    bio: '20 years shaping global brands across Seoul, New York, and London.',
+    bio: 'Leads creative vision with a decade of brand-building across Seoul and global markets.',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80',
   },
   {
     id: 2,
-    name: 'Mia Kang',
+    name: 'Sung-a Park',
     role: 'Head of Strategy',
-    bio: 'Former TBWA and R/GA. Turns cultural tension into brand opportunity.',
+    bio: 'Turns cultural tension into brand opportunity. Former TBWA and BBDO.',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80',
   },
   {
     id: 3,
-    name: 'David Lim',
-    role: 'Director of Technology',
-    bio: 'Ex-Google engineer obsessed with the intersection of design and code.',
+    name: 'Sun Kim',
+    role: 'Creative Lead',
+    bio: 'Award-winning designer obsessed with the space between emotion and aesthetics.',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
   },
   {
     id: 4,
-    name: 'Seo-yeon Cho',
-    role: 'Head of Production',
-    bio: 'Award-winning producer who makes the impossible happen on time.',
+    name: 'Selena',
+    role: 'Director of Content',
+    bio: 'Storyteller at heart. Shapes narratives that move across cultures and platforms.',
+    image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=400&q=80',
+  },
+  {
+    id: 5,
+    name: 'Junhyuk Jang',
+    role: 'Director of Technology',
+    bio: 'Full-stack engineer who believes the best code is invisible but unforgettable.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+  },
+  {
+    id: 6,
+    name: 'KYU',
+    role: 'Motion & 3D Director',
+    bio: 'Brings brands to life through motion, 3D, and the unexpected.',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
   },
 ]

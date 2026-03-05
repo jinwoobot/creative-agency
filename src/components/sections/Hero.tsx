@@ -1,22 +1,32 @@
+const HERO_BG = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=2000&q=80'
+
 export function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-end pb-16 md:pb-24 px-6 md:px-10 overflow-hidden">
-      {/* Background grid */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
-          backgroundSize: '80px 80px',
-        }}
-      />
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <img
+          src={HERO_BG}
+          alt=""
+          className="w-full h-full object-cover object-center"
+          loading="eager"
+        />
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40" />
+        {/* Subtle grid on top */}
+        <div
+          className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage:
+              'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
+            backgroundSize: '80px 80px',
+          }}
+        />
+      </div>
 
-      {/* Accent blob */}
-      <div className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
-
-      <div className="max-w-screen-xl mx-auto w-full">
+      <div className="relative max-w-screen-xl mx-auto w-full">
         {/* Eyebrow */}
-        <p className="text-white/40 text-xs font-semibold uppercase tracking-[0.3em] mb-8">
+        <p className="text-white/50 text-xs font-semibold uppercase tracking-[0.3em] mb-8">
           Creative Innovation Agency
         </p>
 
@@ -29,8 +39,8 @@ export function Hero() {
 
         {/* Subtext + CTA row */}
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
-          <p className="text-white/50 text-base md:text-lg font-normal max-w-[480px] leading-relaxed">
-            STUDIOFORM is an independent creative agency. We combine strategy, design, and technology to create experiences that move people — and move culture.
+          <p className="text-white/55 text-base md:text-lg font-normal max-w-[480px] leading-relaxed">
+            Wegooli Creative Lab is an independent creative agency. We combine strategy, design, and technology to create experiences that move people — and move culture.
           </p>
 
           <div className="flex items-center gap-6 shrink-0">

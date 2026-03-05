@@ -1,21 +1,33 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Logo } from '@/components/ui/Logo'
 import { NAV_ITEMS } from '@/lib/data'
 
 export function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black">
-      <nav className="max-w-screen-xl mx-auto px-6 md:px-10 flex items-center justify-between h-14 md:h-16">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 bg-black transition-shadow duration-300 ${
+        scrolled ? 'shadow-[0_1px_0_rgba(255,255,255,0.06)]' : ''
+      }`}
+    >
+      <nav className="max-w-screen-xl mx-auto px-8 md:px-12 flex items-center justify-between h-[70px]">
         <Logo />
 
-        <ul className="hidden md:flex items-center gap-8">
+        {/* Desktop nav */}
+        <ul className="hidden md:flex items-center gap-10">
           {NAV_ITEMS.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
-                className="text-[13px] text-white/60 hover:text-white transition-colors duration-200"
+                className="text-[13px] font-medium text-white/55 hover:text-white transition-colors duration-200 tracking-wide"
               >
                 {item.label}
               </a>
@@ -23,33 +35,47 @@ export function Navbar() {
           ))}
         </ul>
 
+        {/* CTA */}
         <a
           href="#contact"
-          className="hidden md:block text-[13px] text-white/60 hover:text-white transition-colors duration-200"
+          className="hidden md:flex items-center gap-2 border border-white/20 px-5 py-2.5 text-[12px] font-semibold uppercase tracking-widest text-white/70 hover:border-white hover:text-white transition-all duration-200"
         >
-          Contact
+          Start a Project
         </a>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="md:hidden flex flex-col justify-center gap-[5px] p-2"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          <span className={`block w-5 h-px bg-white transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[4px]' : ''}`} />
-          <span className={`block w-5 h-px bg-white transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-5 h-px bg-white transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[4px]' : ''}`} />
+          <span
+            className={`block w-6 h-px bg-white transition-all duration-300 ${
+              menuOpen ? 'rotate-45 translate-y-[6px]' : ''
+            }`}
+          />
+          <span
+            className={`block w-6 h-px bg-white transition-all duration-300 ${
+              menuOpen ? 'opacity-0' : ''
+            }`}
+          />
+          <span
+            className={`block w-6 h-px bg-white transition-all duration-300 ${
+              menuOpen ? '-rotate-45 -translate-y-[6px]' : ''
+            }`}
+          />
         </button>
       </nav>
 
+      {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-black px-6 pb-8 pt-4">
-          <ul className="flex flex-col gap-5">
+        <div className="md:hidden bg-black border-t border-white/8 px-8 pt-6 pb-10">
+          <ul className="flex flex-col gap-5 mb-8">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="text-2xl font-bold text-white"
+                  className="text-2xl font-bold text-white/80 hover:text-white transition-colors"
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}
@@ -57,6 +83,13 @@ export function Navbar() {
               </li>
             ))}
           </ul>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 border border-white/30 px-5 py-3 text-[12px] font-semibold uppercase tracking-widest text-white/70"
+            onClick={() => setMenuOpen(false)}
+          >
+            Start a Project
+          </a>
         </div>
       )}
     </header>

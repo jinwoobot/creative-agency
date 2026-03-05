@@ -1,7 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" fill="#000000"/>
-  <path
-    d="M6 12L18 48H24L32 24L40 48H46L58 12H52L44 36L36 12H28L20 36L12 12H6Z"
-    fill="#FF0000"
+  <rect width="64" height="64" fill="#000"/>
+  <polyline
+    points="6,10 17,54 32,24 47,54 58,10"
+    stroke="#FF0000"
+    stroke-width="7"
+    stroke-linejoin="miter"
+    stroke-linecap="square"
+    fill="none"
   />
 </svg>

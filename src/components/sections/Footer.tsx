@@ -18,7 +18,7 @@ export function Footer() {
           ))}
         </nav>
         <p className="text-white/20 text-xs">
-          © {new Date().getFullYear()} STUDIOFORM. All rights reserved.
+          © {new Date().getFullYear()} W/CL — Wegooli Creative Lab. All rights reserved.
         </p>
       </div>
     </footer>

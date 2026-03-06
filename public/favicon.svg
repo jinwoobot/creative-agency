@@ -1,11 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" fill="#000"/>
-  <polyline
-    points="6,10 17,54 32,24 47,54 58,10"
-    stroke="#FF0000"
-    stroke-width="7"
-    stroke-linejoin="miter"
-    stroke-linecap="square"
-    fill="none"
-  />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Dark background with white border -->
+  <rect width="32" height="32" rx="5" fill="#000000"/>
+  <rect x="1" y="1" width="30" height="30" rx="4" fill="none" stroke="white" stroke-width="1.5"/>
+
+  <!-- Mast -->
+  <line x1="16" y1="5" x2="16" y2="24" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+  <!-- Main sail (right of mast) -->
+  <path d="M16 5.5 L25.5 23.5 L16 23.5 Z" fill="white"/>
+  <!-- Jib (left of mast, smaller) -->
+  <path d="M15.5 10 L8 23.5 L15.5 23.5 Z" fill="white" opacity="0.42"/>
+  <!-- Hull curve -->
+  <path d="M7 25.5 Q16 28.5 25 25.5" stroke="white" stroke-width="1.4" fill="none" stroke-linecap="round"/>
 </svg>

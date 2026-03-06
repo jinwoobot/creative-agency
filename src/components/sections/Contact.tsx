@@ -37,8 +37,8 @@ export function Contact() {
             <div className="flex flex-col gap-6">
               <div>
                 <p className="text-white/30 text-xs uppercase tracking-widest mb-1">Email</p>
-                <a href="mailto:hello@studioform.co" className="text-white hover:text-accent transition-colors font-medium">
-                  hello@studioform.co
+                <a href="mailto:hello@wcl.co" className="text-white hover:text-accent transition-colors font-medium">
+                  hello@wcl.co
                 </a>
               </div>
               <div>

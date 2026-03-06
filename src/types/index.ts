@@ -6,6 +6,7 @@ export interface Project {
   year: string
   description: string
   tags: string[]
+  image: string
 }
 
 export interface Service {

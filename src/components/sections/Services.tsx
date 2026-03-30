@@ -1,57 +1,62 @@
-const FEATURES = [
-  {
-    id: 1,
-    number: '01',
-    title: 'Context Engineering',
-    desc: '파편화된 운영 데이터를 지능형 컨텍스트로 구조화하여 의사결정 속도를 혁신합니다.',
-  },
-  {
-    id: 2,
-    number: '02',
-    title: 'Agentic Workflow',
-    desc: '스스로 사고하고 실행하는 산업별 맞춤형 AI 에이전트 파이프라인을 구축합니다.',
-  },
-  {
-    id: 3,
-    number: '03',
-    title: 'Meta-Prompting',
-    desc: '모델의 한계를 넘어서는 고차원적 프롬프트 제어로 정교한 결과물을 도출합니다.',
-  },
-]
+import { SOLUTIONS } from '@/lib/data'
 
 export function Services() {
   return (
-    <section id="labs" className="py-24 md:py-32 px-6 md:px-10" style={{ background: 'linear-gradient(to bottom, #001A3D22, #050505)' }}>
-      <div className="max-w-screen-xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div>
-            <p className="text-hailor-cobalt text-xs font-semibold uppercase tracking-[0.3em] mb-3">
-              Core Technology Architecture
-            </p>
-            <h2 className="font-display font-bold text-5xl md:text-7xl tracking-tight leading-[1.0] text-hailor-white">
-              Hailor AI Labs
-            </h2>
-          </div>
-          <p className="text-hailor-white/40 text-sm md:text-base max-w-xs leading-relaxed">
-            산업 현장의 복잡성을 지능으로 풀어내는 핵심 기술 아키텍처.
+    <section id="solutions" className="py-20 md:py-28 px-6 md:px-10 bg-white">
+      <div className="max-w-content mx-auto">
+        {/* Section header — nota.ai style */}
+        <div className="text-center mb-14">
+          <p className="text-apma-blue text-xs font-semibold uppercase tracking-[0.25em] mb-3">
+            Core Technology
+          </p>
+          <h2 className="font-display font-bold text-nota-navy text-4xl md:text-5xl tracking-[-0.02em] leading-tight mb-4">
+            High-Performance AI<br />on Any Operation.
+          </h2>
+          <p className="text-nota-gray text-base max-w-xl mx-auto leading-relaxed">
+            산업 현장의 복잡한 운영 데이터를 가공하여, 비즈니스의 새로운 질서를 만드는 세 가지 핵심 기술.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-hailor-white/10">
-          {FEATURES.map((feature) => (
+        {/* Solutions grid — nota.ai card style */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {SOLUTIONS.map((sol) => (
             <div
-              key={feature.id}
-              className="bg-hailor-black p-10 group hover:bg-hailor-navy/40 transition-colors duration-300"
+              key={sol.id}
+              className="bg-nota-card rounded-lg border border-nota-border p-8 card-hover shadow-card"
             >
-              <p className="text-hailor-cobalt/50 font-mono text-xs mb-8 tracking-widest">
-                {feature.number}
-              </p>
-              <h3 className="font-display font-bold text-2xl text-hailor-white tracking-tight mb-4 group-hover:text-hailor-cobalt transition-colors duration-200">
-                {feature.title}
+              {/* Number + tag */}
+              <div className="flex items-center justify-between mb-6">
+                <span className="text-apma-blue/40 font-mono text-sm font-medium">{sol.number}</span>
+                <span className="text-apma-blue text-xs font-semibold uppercase tracking-widest bg-apma-blue-pale px-2.5 py-1 rounded-full">
+                  {sol.tag}
+                </span>
+              </div>
+
+              <h3 className="font-display font-bold text-nota-navy text-xl mb-3 tracking-[-0.01em]">
+                {sol.title}
               </h3>
-              <p className="text-hailor-white/50 text-sm leading-relaxed">
-                {feature.desc}
+              <p className="text-nota-gray text-sm leading-relaxed mb-6">
+                {sol.description}
               </p>
+
+              {/* Feature list */}
+              <ul className="flex flex-col gap-2">
+                {sol.features.map((f) => (
+                  <li key={f} className="flex items-center gap-2.5 text-sm text-nota-dark">
+                    <span className="w-4 h-px bg-apma-blue shrink-0" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              {/* Learn more link — nota.ai style */}
+              <a
+                href="#contact"
+                className="link-underline inline-flex items-center gap-1.5 text-apma-blue text-sm font-medium mt-7 group"
+              >
+                Learn More
+                <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+              </a>
             </div>
           ))}
         </div>

@@ -19,40 +19,40 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32 px-6 md:px-10 border-t border-hailor-white/10">
-      <div className="max-w-screen-xl mx-auto">
+    <section id="contact" className="py-20 md:py-28 px-6 md:px-10 bg-white border-t border-nota-border">
+      <div className="max-w-content mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Left */}
           <div>
-            <p className="text-hailor-cobalt text-xs font-semibold uppercase tracking-[0.3em] mb-3">
-              Get In Touch
+            <p className="text-apma-blue text-xs font-semibold uppercase tracking-[0.25em] mb-3">
+              Contact Us
             </p>
-            <h2 className="font-display font-bold text-5xl md:text-7xl tracking-tight leading-[1.0] text-hailor-white mb-8">
-              Contact<br />Us.
+            <h2 className="font-display font-bold text-nota-navy text-4xl md:text-5xl tracking-[-0.02em] leading-tight mb-6">
+              Start a<br />Project.
             </h2>
-            <p className="text-hailor-white/50 text-base leading-relaxed mb-12 max-w-sm">
+            <p className="text-nota-gray text-base leading-relaxed mb-12 max-w-sm">
               프로젝트에 대해 이야기해주세요. 모든 문의에 24시간 내 답변드립니다.
             </p>
 
             <div className="flex flex-col gap-6">
               <div>
-                <p className="text-hailor-white/30 text-xs uppercase tracking-widest mb-1">Email</p>
-                <a href="mailto:hello@hailor.ai" className="text-hailor-white hover:text-hailor-cobalt transition-colors font-medium">
+                <p className="text-nota-gray text-xs uppercase tracking-widest mb-1">Email</p>
+                <a href="mailto:hello@hailor.ai" className="text-nota-navy hover:text-apma-blue transition-colors font-medium">
                   hello@hailor.ai
                 </a>
               </div>
               <div>
-                <p className="text-hailor-white/30 text-xs uppercase tracking-widest mb-1">Office</p>
-                <p className="text-hailor-white font-medium">Seoul | Global Operations</p>
+                <p className="text-nota-gray text-xs uppercase tracking-widest mb-1">Office</p>
+                <p className="text-nota-navy font-medium">Seoul | Global Operations</p>
               </div>
               <div>
-                <p className="text-hailor-white/30 text-xs uppercase tracking-widest mb-2">Connect</p>
-                <div className="flex gap-4">
+                <p className="text-nota-gray text-xs uppercase tracking-widest mb-2">Connect</p>
+                <div className="flex gap-5">
                   {['LinkedIn', 'Twitter(X)', 'Global Agency Network'].map((s) => (
                     <a
                       key={s}
                       href="#"
-                      className="text-hailor-white/40 hover:text-hailor-cobalt text-sm uppercase tracking-widest transition-colors"
+                      className="text-nota-gray hover:text-apma-blue text-sm transition-colors link-underline"
                     >
                       {s}
                     </a>
@@ -60,31 +60,39 @@ export function Contact() {
                 </div>
               </div>
             </div>
+
+            {/* Philosophy callout */}
+            <div id="about" className="mt-12 p-6 bg-apma-blue-pale rounded-lg border-l-4 border-apma-blue">
+              <h4 className="font-display font-bold text-nota-navy text-lg mb-2">Time Quality Agency</h4>
+              <p className="text-nota-gray text-sm leading-relaxed">
+                우리는 고객의 시간을 값지게 하기 위해 존재합니다. 단순한 대행을 넘어, 기술로 삶의 퀄리티를 혁신하는 외과의사 같은 파트너가 되겠습니다.
+              </p>
+            </div>
           </div>
 
           {/* Right — Form */}
           <div>
             {submitted ? (
               <div className="h-full flex flex-col justify-center items-start gap-4 py-12">
-                <div className="text-5xl text-hailor-cobalt">✓</div>
-                <h3 className="text-3xl font-display font-bold text-hailor-white tracking-tight">Message received.</h3>
-                <p className="text-hailor-white/50">24시간 내 연락드리겠습니다.</p>
+                <div className="w-12 h-12 bg-apma-blue rounded-full flex items-center justify-center text-white text-xl">✓</div>
+                <h3 className="text-3xl font-display font-bold text-nota-navy tracking-tight">Message received.</h3>
+                <p className="text-nota-gray">24시간 내 연락드리겠습니다.</p>
                 <button
                   onClick={() => { setSubmitted(false); setFormState({ name: '', email: '', company: '', message: '' }) }}
-                  className="mt-4 text-hailor-white/40 hover:text-hailor-white text-sm uppercase tracking-widest transition-colors"
+                  className="mt-4 text-apma-blue text-sm font-medium link-underline"
                 >
                   Send another →
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 {[
                   { name: 'name', label: 'Your Name', type: 'text', required: true },
                   { name: 'email', label: 'Email Address', type: 'email', required: true },
                   { name: 'company', label: 'Company (optional)', type: 'text', required: false },
                 ].map((field) => (
-                  <div key={field.name} className="flex flex-col gap-2">
-                    <label htmlFor={field.name} className="text-hailor-white/40 text-xs uppercase tracking-widest">
+                  <div key={field.name} className="flex flex-col gap-1.5">
+                    <label htmlFor={field.name} className="text-nota-gray text-xs uppercase tracking-widest">
                       {field.label}
                     </label>
                     <input
@@ -94,14 +102,14 @@ export function Contact() {
                       required={field.required}
                       value={formState[field.name as keyof typeof formState]}
                       onChange={handleChange}
-                      className="bg-transparent border-b border-hailor-white/20 focus:border-hailor-cobalt outline-none py-3 text-hailor-white placeholder-hailor-white/20 transition-colors duration-200 text-base"
+                      className="border border-nota-border rounded px-4 py-3 text-nota-navy placeholder-nota-gray/40 text-sm focus:outline-none focus:border-apma-blue transition-colors bg-white"
                       placeholder={field.label}
                     />
                   </div>
                 ))}
 
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="message" className="text-hailor-white/40 text-xs uppercase tracking-widest">
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="message" className="text-nota-gray text-xs uppercase tracking-widest">
                     Tell us about your project
                   </label>
                   <textarea
@@ -111,14 +119,14 @@ export function Contact() {
                     rows={4}
                     value={formState.message}
                     onChange={handleChange}
-                    className="bg-transparent border-b border-hailor-white/20 focus:border-hailor-cobalt outline-none py-3 text-hailor-white placeholder-hailor-white/20 transition-colors duration-200 resize-none text-base"
+                    className="border border-nota-border rounded px-4 py-3 text-nota-navy placeholder-nota-gray/40 text-sm focus:outline-none focus:border-apma-blue transition-colors resize-none bg-white"
                     placeholder="어떤 프로젝트를 구상하고 계신가요?"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="mt-4 bg-hailor-cobalt text-hailor-white font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-hailor-cobalt/80 transition-all duration-200 self-start"
+                  className="mt-2 bg-apma-blue text-white font-semibold text-sm px-7 py-3.5 rounded hover:bg-apma-blue-mid transition-all duration-200 self-start"
                 >
                   Send Message →
                 </button>

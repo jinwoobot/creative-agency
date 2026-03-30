@@ -1,96 +1,86 @@
-const KEY_INDICATORS = [
-  { label: 'Fleet Optimization', value: '90% Automation' },
-  { label: 'Risk Prediction', value: 'Real-time Processing' },
-  { label: 'Operating OS', value: 'Agent-driven' },
-]
+import { INDUSTRIES } from '@/lib/data'
 
 export function About() {
   return (
     <>
-      {/* Wegooli Mobility AI Lab */}
-      <section id="mobility" className="py-24 md:py-32 px-6 md:px-10 bg-hailor-black">
-        <div className="max-w-screen-xl mx-auto">
-          <div className="mb-16">
-            <p className="text-hailor-cobalt text-xs font-semibold uppercase tracking-[0.3em] mb-3">
-              Real-World Data, Proven Intelligence
+      {/* Industry Applications Mosaic — nota.ai style */}
+      <section id="labs" className="py-20 md:py-28 px-6 md:px-10 bg-nota-bg">
+        <div className="max-w-content mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-apma-blue text-xs font-semibold uppercase tracking-[0.25em] mb-3">
+              Where AI Drives the Mission
             </p>
-            <h2 className="font-display font-bold text-5xl md:text-7xl tracking-tight leading-[1.0] text-hailor-white mb-6">
-              Wegooli<br />Mobility AI Lab
+            <h2 className="font-display font-bold text-nota-navy text-4xl md:text-5xl tracking-[-0.02em] leading-tight mb-4">
+              AI for Every Industry
             </h2>
-            <p className="text-hailor-white/50 text-base md:text-lg leading-relaxed max-w-2xl">
-              위굴리의 모빌리티 운영 도메인 지식과 Hailor의 AI 기술이 결합된 실증 연구소입니다.
+            <p className="text-nota-gray text-base max-w-lg mx-auto">
+              Hailor AI가 실질적인 가치를 만들어내는 12개 이상의 핵심 산업 분야.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            {/* Dashboard concept */}
-            <div className="relative border border-hailor-white/10 p-8 bg-hailor-navy/20">
-              <p className="text-hailor-white/30 text-xs uppercase tracking-widest mb-6">
-                Live Operations Dashboard
-              </p>
-              <div className="flex flex-col gap-4">
-                {KEY_INDICATORS.map((indicator) => (
-                  <div
-                    key={indicator.label}
-                    className="flex items-center justify-between border-b border-hailor-white/10 pb-4 last:border-0 last:pb-0"
-                  >
-                    <span className="text-hailor-white/50 text-sm uppercase tracking-widest">
-                      {indicator.label}
-                    </span>
-                    <span className="font-display font-bold text-hailor-cobalt text-lg tracking-tight">
-                      {indicator.value}
-                    </span>
-                  </div>
-                ))}
+          {/* Mosaic grid — nota.ai style */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            {INDUSTRIES.map((industry) => (
+              <div
+                key={industry.id}
+                className="bg-white rounded-lg border border-nota-border p-5 flex flex-col items-center justify-center gap-3 text-center card-hover shadow-sm group"
+              >
+                <span className="text-3xl">{industry.icon}</span>
+                <span className="text-sm font-medium text-nota-dark group-hover:text-apma-blue transition-colors">
+                  {industry.label}
+                </span>
               </div>
-              {/* Decorative corner accent */}
-              <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-hailor-cobalt/40" />
-              <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-hailor-cobalt/40" />
-            </div>
-
-            {/* Description */}
-            <div>
-              <div className="mb-10">
-                <h3 className="font-display font-bold text-2xl text-hailor-white tracking-tight mb-4">
-                  Mobility Domain Intelligence
-                </h3>
-                <p className="text-hailor-white/50 text-base leading-relaxed">
-                  카쉐어링 운영 현장에서 수집된 실제 데이터를 기반으로, AI 에이전트가 차량 스케줄링부터 리스크 예측까지 자동으로 처리합니다.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-display font-bold text-2xl text-hailor-white tracking-tight mb-4">
-                  Proven in the Field
-                </h3>
-                <p className="text-hailor-white/50 text-base leading-relaxed">
-                  연구실이 아닌 실제 운영 환경에서 검증된 AI 기술로, 모빌리티 산업의 복잡한 도전 과제를 해결합니다.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Philosophy — Time Quality Agency */}
-      <section id="studio" className="py-24 md:py-32 px-6 md:px-10" style={{ background: 'linear-gradient(135deg, #001A3D, #050505)' }}>
-        <div className="max-w-screen-xl mx-auto">
-          <div className="max-w-4xl">
-            <p className="text-hailor-cobalt text-xs font-semibold uppercase tracking-[0.3em] mb-6">
-              Our Philosophy
-            </p>
-            <h2 className="font-display font-bold text-5xl md:text-7xl tracking-tight leading-[1.0] text-hailor-white mb-10">
-              Time Quality<br />Agency
-            </h2>
-            <p className="text-hailor-white/60 text-lg md:text-xl leading-relaxed mb-12 max-w-2xl">
-              우리는 고객의 시간을 값지게 하기 위해 존재합니다. 단순한 대행을 넘어, 기술로 삶의 퀄리티를 혁신하는 외과의사 같은 파트너가 되겠습니다.
-            </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-3 border border-hailor-white/30 text-hailor-white font-semibold uppercase tracking-[0.1em] text-sm px-8 py-4 hover:border-hailor-cobalt hover:text-hailor-cobalt transition-all duration-200"
-            >
-              Explore the Future with Hailor
-              <span className="text-lg">→</span>
-            </a>
+      {/* Wegooli Mobility AI Lab — APMA blue deep section */}
+      <section id="mobility" className="py-20 md:py-28 px-6 md:px-10 bg-apma-blue text-white">
+        <div className="max-w-content mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            {/* Left */}
+            <div>
+              <p className="text-white/60 text-xs font-semibold uppercase tracking-[0.25em] mb-4">
+                Real-World Data · Proven Intelligence
+              </p>
+              <h2 className="font-display font-bold text-4xl md:text-5xl tracking-[-0.02em] leading-tight mb-5">
+                Wegooli<br />Mobility AI Lab
+              </h2>
+              <p className="text-white/75 text-base leading-relaxed mb-8 max-w-lg">
+                위굴리의 모빌리티 운영 도메인 지식과 Hailor의 AI 기술이 결합된 실증 연구소입니다. 연구실이 아닌 실제 운영 환경에서 검증된 AI 기술로, 모빌리티 산업의 복잡한 도전 과제를 해결합니다.
+              </p>
+              <a
+                href="#cases"
+                className="inline-flex items-center gap-2 bg-white text-apma-blue font-semibold text-sm px-6 py-3 rounded hover:bg-apma-blue-light transition-all duration-200"
+              >
+                View Business Cases →
+              </a>
+            </div>
+
+            {/* Right — Dashboard card */}
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-8">
+              <p className="text-white/50 text-xs uppercase tracking-widest mb-6 font-medium">
+                Live Operations
+              </p>
+              {[
+                { label: 'Fleet Optimization', value: '90% Automation', change: '+12%' },
+                { label: 'Risk Prediction', value: 'Real-time Processing', change: 'Active' },
+                { label: 'Operating OS', value: 'Agent-driven', change: 'Online' },
+                { label: 'Incidents Prevented', value: '2,847', change: 'This Month' },
+              ].map((row) => (
+                <div
+                  key={row.label}
+                  className="flex items-center justify-between py-3.5 border-b border-white/10 last:border-0"
+                >
+                  <span className="text-white/65 text-sm">{row.label}</span>
+                  <div className="text-right">
+                    <span className="text-white font-bold text-sm">{row.value}</span>
+                    <span className="text-white/45 text-xs ml-2">{row.change}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

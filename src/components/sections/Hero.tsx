@@ -1,65 +1,112 @@
+import { useState, useEffect, useCallback } from 'react'
+import { HERO_SLIDES } from '@/lib/data'
+
+const INTERVAL = 4000
+
 export function Hero() {
+  const [active, setActive] = useState(0)
+  const [animKey, setAnimKey] = useState(0)
+
+  const goTo = useCallback((index: number) => {
+    setActive(index)
+    setAnimKey((k) => k + 1)
+  }, [])
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      goTo((active + 1) % HERO_SLIDES.length)
+    }, INTERVAL)
+    return () => clearInterval(timer)
+  }, [active, goTo])
+
+  const slide = HERO_SLIDES[active]
+
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-center px-6 md:px-10 overflow-hidden">
-      {/* Deep Navy to Black gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-hailor-navy via-hailor-navy/70 to-hailor-black" />
+    <section id="hero" className="relative h-[720px] md:h-screen max-h-[900px] overflow-hidden">
+      {/* Background gradient (APMA deep blue) */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${slide.bgColor} transition-all duration-700`} />
 
-      {/* Abstract fluid elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-[20%] -right-[15%] w-[700px] h-[700px] bg-hailor-cobalt/8 rounded-full blur-[140px]" />
-        <div className="absolute top-[40%] -left-[10%] w-[500px] h-[500px] bg-hailor-navy rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 right-[20%] w-[400px] h-[300px] bg-hailor-cobalt/5 rounded-full blur-[120px]" />
-      </div>
+      {/* Decorative grid overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+        }}
+      />
 
-      <div className="relative max-w-screen-xl mx-auto w-full pt-32 pb-20">
-        <p className="text-hailor-cobalt text-xs font-semibold uppercase tracking-[0.3em] mb-8">
-          Hailor.ai — The Neo-AI Identity
-        </p>
+      {/* Abstract light blob */}
+      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[140px] pointer-events-none" />
 
-        <h1 className="font-display font-bold text-hailor-white leading-[1.05] tracking-tight text-[clamp(2.5rem,5.5vw,5rem)] mb-6 max-w-[22ch]">
-          The Intelligence that<br />Drives the Mission.
-        </h1>
+      {/* Slide content */}
+      <div className="relative h-full max-w-content mx-auto px-6 md:px-10 flex flex-col justify-center">
+        <div key={animKey} className="hero-slide-enter">
+          <span className="inline-block text-white/60 text-xs font-medium uppercase tracking-[0.25em] mb-5 border border-white/20 px-3 py-1 rounded-full">
+            {slide.tag}
+          </span>
 
-        <p className="text-hailor-white/70 text-base md:text-lg font-normal max-w-[560px] leading-relaxed mb-3">
-          Context Engineering & Agentic Workflow for the Physical World.
-        </p>
+          <h1 className="font-display font-bold text-white text-[clamp(2.2rem,5vw,52px)] leading-[1.1] tracking-[-0.02em] mb-4 max-w-[18ch] whitespace-pre-line">
+            {slide.headline}
+          </h1>
 
-        <p className="text-hailor-white/35 text-sm max-w-[480px] leading-relaxed mb-14">
-          우리는 공개되어 있지만 해석하기 힘든 데이터를 가공하여, 비즈니스의 새로운 질서를 만듭니다.
-        </p>
+          <p className="text-white/75 text-base md:text-lg mb-3 max-w-lg font-light">
+            {slide.subheadline}
+          </p>
+          <p className="text-white/45 text-sm mb-10 max-w-md leading-relaxed">
+            {slide.description}
+          </p>
 
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
           <a
-            href="#labs"
-            className="inline-flex items-center gap-3 bg-hailor-cobalt text-hailor-white font-semibold uppercase tracking-[0.1em] text-sm px-8 py-4 hover:bg-hailor-cobalt/80 transition-all duration-200"
+            href={slide.ctaHref}
+            className="inline-flex items-center gap-2 bg-white text-apma-blue font-semibold text-sm px-7 py-3.5 rounded hover:bg-apma-blue-light hover:text-apma-blue transition-all duration-200 shadow-md w-fit"
           >
-            Explore AI Labs
-            <span className="text-lg">→</span>
-          </a>
-          <a
-            href="#cases"
-            className="text-hailor-white/50 hover:text-hailor-white text-sm uppercase tracking-widest transition-colors"
-          >
-            View Cases
+            {slide.cta}
           </a>
         </div>
+      </div>
 
-        {/* Key indicators */}
-        <div className="mt-20 pt-8 border-t border-hailor-white/10 grid grid-cols-3 gap-4 md:gap-0 md:flex md:items-center md:divide-x md:divide-hailor-white/10">
-          {[
-            { value: '90%', label: 'Fleet Automation' },
-            { value: 'Real-time', label: 'Risk Processing' },
-            { value: 'Agent-driven', label: 'Operating OS' },
-          ].map((stat) => (
-            <div key={stat.label} className="md:px-10 first:pl-0">
-              <p className="text-2xl md:text-3xl font-display font-bold text-hailor-white tracking-tight">
-                {stat.value}
-              </p>
-              <p className="text-hailor-white/40 text-xs uppercase tracking-widest mt-1">
-                {stat.label}
-              </p>
-            </div>
-          ))}
+      {/* Tab navigation (nota.ai style) */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <div className="max-w-content mx-auto px-6 md:px-10">
+          {/* Desktop tabs */}
+          <div className="hidden md:flex items-end gap-0">
+            {HERO_SLIDES.map((s, i) => (
+              <button
+                key={s.id}
+                onClick={() => goTo(i)}
+                className={`group relative flex-1 text-left px-4 py-4 border-t-2 transition-all duration-200 ${
+                  i === active
+                    ? 'border-white bg-white/10 backdrop-blur-sm'
+                    : 'border-white/20 hover:border-white/50 hover:bg-white/5'
+                }`}
+              >
+                <p className={`text-xs font-medium uppercase tracking-widest mb-0.5 ${i === active ? 'text-white' : 'text-white/40 group-hover:text-white/70'}`}>
+                  {String(i + 1).padStart(2, '0')}
+                </p>
+                <p className={`text-sm font-medium truncate ${i === active ? 'text-white' : 'text-white/50 group-hover:text-white/80'}`}>
+                  {s.tag}
+                </p>
+
+                {/* Progress bar for active slide */}
+                {i === active && (
+                  <div className="absolute bottom-0 left-0 h-0.5 bg-white" style={{ animation: `progress ${INTERVAL}ms linear forwards` }} />
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile dots */}
+          <div className="flex md:hidden justify-center gap-2 pb-6">
+            {HERO_SLIDES.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === active ? 'w-6 bg-white' : 'w-1.5 bg-white/40'
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

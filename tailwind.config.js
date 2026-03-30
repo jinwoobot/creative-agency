@@ -7,18 +7,29 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Roboto', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['Roboto', 'Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
-        'hailor-black': '#050505',
-        'hailor-navy': '#001A3D',
-        'hailor-cobalt': '#0044CC',
-        'hailor-white': '#F2F2F2',
+        /* APMA-inspired deep blue palette */
+        'apma-blue': '#003087',
+        'apma-blue-mid': '#1450A3',
+        'apma-blue-light': '#EDF1FA',
+        'apma-blue-pale': '#F4F7FD',
+        /* nota.ai neutrals */
+        'nota-navy': '#101218',
+        'nota-dark': '#252A39',
+        'nota-gray': '#7E8390',
+        'nota-border': '#E7E7E7',
+        'nota-bg': '#F6F6F8',
+        'nota-card': '#FFFFFF',
       },
-      letterSpacing: {
-        tight: '-0.02em',
-        tightest: '-0.06em',
+      boxShadow: {
+        card: '10px 10px 28px 0 rgba(141, 141, 141, 0.15)',
+        'card-hover': '10px 10px 40px 0 rgba(0, 48, 135, 0.18)',
+      },
+      maxWidth: {
+        content: '1300px',
       },
     },
   },

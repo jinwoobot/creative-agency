@@ -12,18 +12,28 @@
   }
 
   body {
-    @apply bg-black text-white font-sans antialiased;
+    background-color: #050505;
+    color: #F2F2F2;
+    font-family: Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
   ::selection {
-    background-color: #FF2D20;
-    color: #fff;
+    background-color: #0044CC;
+    color: #F2F2F2;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .glass-nav {
+    background: rgba(0, 26, 61, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 }

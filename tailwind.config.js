@@ -8,12 +8,16 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
-        accent: '#FF2D20',
+        'hailor-black': '#050505',
+        'hailor-navy': '#001A3D',
+        'hailor-cobalt': '#0044CC',
+        'hailor-white': '#F2F2F2',
       },
       letterSpacing: {
+        tight: '-0.02em',
         tightest: '-0.06em',
       },
     },

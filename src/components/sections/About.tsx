@@ -1,114 +1,99 @@
-import { TEAM_MEMBERS } from '@/lib/data'
+const KEY_INDICATORS = [
+  { label: 'Fleet Optimization', value: '90% Automation' },
+  { label: 'Risk Prediction', value: 'Real-time Processing' },
+  { label: 'Operating OS', value: 'Agent-driven' },
+]
 
 export function About() {
   return (
-    <section id="about" className="py-24 md:py-32 px-6 md:px-10">
-      <div className="max-w-screen-xl mx-auto">
-        {/* Section header */}
-        <div className="mb-20">
-          <p className="text-accent text-xs font-semibold uppercase tracking-[0.3em] mb-3">
-            About Us
-          </p>
-          <h2 className="text-5xl md:text-7xl font-black tracking-[-0.04em] leading-[0.9] text-white mb-8">
-            We are<br />
-            W<span className="text-accent font-thin">/</span>CL.
-          </h2>
-          <p className="text-white/50 text-base md:text-xl leading-relaxed max-w-2xl">
-            Founded in Seoul. Operating globally. W/CL (Wegooli Creative Lab) is a Hyper-Operation group — we integrate strategy, technology, and creative to maximize your business's operational fitness.
-          </p>
-        </div>
-
-        {/* Two-column content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 mb-24">
-          <div>
-            <h3 className="text-white font-black text-2xl tracking-tight mb-4">
-              The Optimization Navigator
-            </h3>
-            <p className="text-white/50 text-base leading-relaxed">
-              With the spirit of a sailor navigating toward the horizon, we analyze every process in your business and sharpen it to its most efficient state. We don't talk about vague expansion — we focus on optimizing your business engine using real operational data we've proven ourselves.
+    <>
+      {/* Wegooli Mobility AI Lab */}
+      <section id="mobility" className="py-24 md:py-32 px-6 md:px-10 bg-hailor-black">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="mb-16">
+            <p className="text-hailor-cobalt text-xs font-semibold uppercase tracking-[0.3em] mb-3">
+              Real-World Data, Proven Intelligence
+            </p>
+            <h2 className="font-display font-bold text-5xl md:text-7xl tracking-tight leading-[1.0] text-hailor-white mb-6">
+              Wegooli<br />Mobility AI Lab
+            </h2>
+            <p className="text-hailor-white/50 text-base md:text-lg leading-relaxed max-w-2xl">
+              위굴리의 모빌리티 운영 도메인 지식과 Hailor의 AI 기술이 결합된 실증 연구소입니다.
             </p>
           </div>
-          <div>
-            <h3 className="text-white font-black text-2xl tracking-tight mb-4">
-              A Living Business OS
-            </h3>
-            <p className="text-white/50 text-base leading-relaxed">
-              The Business OS we design is not a fixed system. It's a living system that flexibly evolves with its environment to find optimal efficiency. Even after delivery, we provide AI empowerment training so your team can independently navigate and optimize the route — elevating your entire organization's intelligence.
-            </p>
-          </div>
-        </div>
 
-        {/* Manifesto block */}
-        <div className="border-l-4 border-accent pl-8 md:pl-12 mb-24">
-          <blockquote className="text-2xl md:text-4xl font-bold text-white leading-snug tracking-tight max-w-3xl">
-            "우리는 비즈니스의 수평선을 넓히고, 그 항로 위의 모든 비효율을 최적화합니다."
-          </blockquote>
-          <p className="text-white/40 text-sm mt-4 uppercase tracking-widest">
-            Ji-won Park — Executive Creative Director, W/CL
-          </p>
-        </div>
-
-        {/* Three pillars */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 mb-24">
-          {[
-            {
-              label: '자산의 최적화',
-              title: 'Asset Optimization',
-              desc: 'Carsharing, co-living, and idle assets — we maximize the return on every resource you already own.',
-            },
-            {
-              label: '운영의 최적화',
-              title: 'Operations Optimization',
-              desc: 'AI-driven automation eliminates repetitive tasks and human error from your core workflows.',
-            },
-            {
-              label: '조직의 최적화',
-              title: 'Organizational Optimization',
-              desc: 'Through training, we make every member of your team a confident AI operator.',
-            },
-          ].map((pillar) => (
-            <div key={pillar.title} className="bg-black p-8 group hover:bg-accent transition-colors duration-300">
-              <p className="text-accent group-hover:text-white/70 text-xs uppercase tracking-widest mb-3 transition-colors duration-300">
-                {pillar.label}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            {/* Dashboard concept */}
+            <div className="relative border border-hailor-white/10 p-8 bg-hailor-navy/20">
+              <p className="text-hailor-white/30 text-xs uppercase tracking-widest mb-6">
+                Live Operations Dashboard
               </p>
-              <h4 className="text-white font-bold text-lg tracking-tight mb-3">
-                {pillar.title}
-              </h4>
-              <p className="text-white/40 group-hover:text-white/60 text-sm leading-relaxed transition-colors duration-300">
-                {pillar.desc}
-              </p>
+              <div className="flex flex-col gap-4">
+                {KEY_INDICATORS.map((indicator) => (
+                  <div
+                    key={indicator.label}
+                    className="flex items-center justify-between border-b border-hailor-white/10 pb-4 last:border-0 last:pb-0"
+                  >
+                    <span className="text-hailor-white/50 text-sm uppercase tracking-widest">
+                      {indicator.label}
+                    </span>
+                    <span className="font-display font-bold text-hailor-cobalt text-lg tracking-tight">
+                      {indicator.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              {/* Decorative corner accent */}
+              <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-hailor-cobalt/40" />
+              <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-hailor-cobalt/40" />
             </div>
-          ))}
-        </div>
 
-        {/* Team grid */}
-        <div>
-          <p className="text-white/40 text-xs font-semibold uppercase tracking-[0.3em] mb-10">
-            Our People
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
-            {TEAM_MEMBERS.map((member) => (
-              <div
-                key={member.id}
-                className="bg-black p-8 group hover:bg-accent transition-colors duration-300"
-              >
-                <div className="w-14 h-14 bg-white/10 group-hover:bg-white/20 mb-6 flex items-center justify-center text-white/20 font-black text-xl transition-colors duration-300">
-                  {member.name.split(' ').map((n) => n[0]).join('')}
-                </div>
-                <h3 className="text-white font-bold text-lg tracking-tight mb-1">
-                  {member.name}
+            {/* Description */}
+            <div>
+              <div className="mb-10">
+                <h3 className="font-display font-bold text-2xl text-hailor-white tracking-tight mb-4">
+                  Mobility Domain Intelligence
                 </h3>
-                <p className="text-white/50 group-hover:text-white/70 text-xs uppercase tracking-widest mb-4 transition-colors duration-300">
-                  {member.role}
-                </p>
-                <p className="text-white/40 group-hover:text-white/60 text-sm leading-relaxed transition-colors duration-300">
-                  {member.bio}
+                <p className="text-hailor-white/50 text-base leading-relaxed">
+                  카쉐어링 운영 현장에서 수집된 실제 데이터를 기반으로, AI 에이전트가 차량 스케줄링부터 리스크 예측까지 자동으로 처리합니다.
                 </p>
               </div>
-            ))}
+              <div>
+                <h3 className="font-display font-bold text-2xl text-hailor-white tracking-tight mb-4">
+                  Proven in the Field
+                </h3>
+                <p className="text-hailor-white/50 text-base leading-relaxed">
+                  연구실이 아닌 실제 운영 환경에서 검증된 AI 기술로, 모빌리티 산업의 복잡한 도전 과제를 해결합니다.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Philosophy — Time Quality Agency */}
+      <section id="studio" className="py-24 md:py-32 px-6 md:px-10" style={{ background: 'linear-gradient(135deg, #001A3D, #050505)' }}>
+        <div className="max-w-screen-xl mx-auto">
+          <div className="max-w-4xl">
+            <p className="text-hailor-cobalt text-xs font-semibold uppercase tracking-[0.3em] mb-6">
+              Our Philosophy
+            </p>
+            <h2 className="font-display font-bold text-5xl md:text-7xl tracking-tight leading-[1.0] text-hailor-white mb-10">
+              Time Quality<br />Agency
+            </h2>
+            <p className="text-hailor-white/60 text-lg md:text-xl leading-relaxed mb-12 max-w-2xl">
+              우리는 고객의 시간을 값지게 하기 위해 존재합니다. 단순한 대행을 넘어, 기술로 삶의 퀄리티를 혁신하는 외과의사 같은 파트너가 되겠습니다.
+            </p>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-3 border border-hailor-white/30 text-hailor-white font-semibold uppercase tracking-[0.1em] text-sm px-8 py-4 hover:border-hailor-cobalt hover:text-hailor-cobalt transition-all duration-200"
+            >
+              Explore the Future with Hailor
+              <span className="text-lg">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
